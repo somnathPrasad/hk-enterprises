@@ -2,13 +2,14 @@
 import { AuroraBackground } from "@/components/aurora-background";
 import { BackgroundGradient } from "@/components/background-gradient";
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
+import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div>
-      <AuroraBackground className="bg-black">
+      <AuroraBackground className="bg-white">
         <Header />
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
@@ -20,15 +21,15 @@ export default function Home() {
           }}
           className="relative flex flex-col gap-4 items-center justify-center px-4"
         >
-          <div className="text-3xl md:text-7xl font-bold text-white text-center">
+          <div className="text-3xl md:text-7xl font-bold text-[#080853] text-center px-40">
             Need help in content creation?
           </div>
-          <div className="font-extralight text-base md:text-2xl text-neutral-200 py-4 text-center">
+          <div className="font-extralight text-base md:text-2xl text-[#080853] py-4 text-center px-52">
             Your social media management team that can help you with Ideation,
             Scripting, Video presenters, Editing, Promotions and Advertisements.
             We offer services of 5 experts in the salary of 1.
           </div>
-          <button className="bg-white rounded-full w-fit text-black px-4 py-2">
+          <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#080853,45%,#1e3631,55%,#080853)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:scale-110 ease-in-out">
             Connect with us
           </button>
         </motion.div>
@@ -42,7 +43,12 @@ export default function Home() {
           ease: "easeInOut",
         }}
       >
-        <h1 className="text-center pb-5 text-2xl font-bold">Our Services</h1>
+        <h1
+          className="text-center pb-5 text-4xl font-black text-[#080853]"
+          id="services"
+        >
+          Our Services
+        </h1>
         <BentoGrid className="max-w-5xl mx-auto">
           <BackgroundGradient
             containerClassName="md:col-span-2"
@@ -100,7 +106,7 @@ export default function Home() {
         </BentoGrid>
       </motion.div>
 
-      <div className="h-20"></div>
+      <Footer />
     </div>
   );
 }
