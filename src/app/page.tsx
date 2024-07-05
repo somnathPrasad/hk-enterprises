@@ -19,12 +19,12 @@ export default function Home() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 -mt-44 md:-mt-0"
         >
-          <div className="text-3xl md:text-7xl font-bold text-[#080853] text-center px-40">
+          <div className="text-3xl md:text-7xl font-bold text-[#080853] text-center md:px-40">
             Need help in content creation?
           </div>
-          <div className="font-extralight text-base md:text-2xl text-[#080853] py-4 text-center px-52">
+          <div className="font-extralight text-base md:text-2xl text-[#080853] py-4 text-center px-1 md:px-52">
             Your social media management team that can help you with Ideation,
             Scripting, Video presenters, Editing, Promotions and Advertisements.
             We offer services of 5 experts in the salary of 1.
@@ -34,14 +34,14 @@ export default function Home() {
           </button>
         </motion.div>
       </AuroraBackground>
-      <motion.div
-        initial={{ opacity: 0.0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
+      <div
+      // initial={{ opacity: 0.0, y: 50 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // transition={{
+      //   delay: 0.3,
+      //   duration: 0.8,
+      //   ease: "easeInOut",
+      // }}
       >
         <h1
           className="text-center pb-5 text-4xl font-black text-[#080853]"
@@ -49,7 +49,7 @@ export default function Home() {
         >
           Our Services
         </h1>
-        <BentoGrid className="max-w-5xl mx-auto">
+        <BentoGrid className="max-w-5xl mx-auto px-10 md:px-0">
           <BackgroundGradient
             containerClassName="md:col-span-2"
             className="rounded-xl h-full"
@@ -104,7 +104,7 @@ export default function Home() {
             />
           </BackgroundGradient>
         </BentoGrid>
-      </motion.div>
+      </div>
 
       <Footer />
     </div>

@@ -10,7 +10,7 @@ export default function Footer() {
   const year = date.getFullYear();
   return (
     <div className="text-[#080853]">
-      <div className="grid grid-cols-5 gap-10 mt-40 border-t border-gray-400 pt-10 px-10">
+      <div className="grid grid-row-5 md:grid-cols-5 gap-10 mt-40 border-t border-gray-400 pt-10 px-10">
         <div>
           <Image
             src={"/logo.png"}
@@ -38,7 +38,7 @@ export default function Footer() {
           <Map />
         </div>
         <div>
-          <h1 className="font-bold text-xl pb-5">Get is touch</h1>
+          <h1 className="font-bold text-xl pb-5">Get in touch</h1>
           <div className="flex items-center">
             <IoIosCall size={25} />
             <div className="flex flex-col pl-4">
@@ -54,10 +54,15 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-center mt-3">
-            <FaMapLocationDot size={25} />
+            <div>
+              <FaMapLocationDot size={25} />
+            </div>
             <div className="flex flex-col pl-4">
               <span className="text-lg font-bold">Registered Office</span>
-              <span>7735661657</span>
+              <span>
+                A-302, Birsa Munda Market complex, Phase - 3, Kalinga Vihar
+                Chowk, Chhend, Rourkela -15, Odisha
+              </span>
             </div>
           </div>
         </div>
