@@ -35,9 +35,12 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 rounded-xl group/bento p-4 bg-black border-white/[0.2] border justify-between flex flex-col space-y-4",
+        "row-span-1 rounded-xl group/bento p-4 border-slate-700 border justify-between flex flex-col space-y-4",
         className
       )}
+      style={{
+        background: "linear-gradient(180deg, #080853, var(--slate-900)",
+      }}
     >
       {header}
       <div className="">

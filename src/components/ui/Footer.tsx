@@ -10,7 +10,7 @@ export default function Footer() {
   const year = date.getFullYear();
   return (
     <div className="text-[#080853]">
-      <div className="grid grid-row-5 md:grid-cols-5 gap-10 mt-40 border-t border-gray-400 pt-10 px-10">
+      <div className="grid grid-row-4 md:grid-cols-5 gap-10 mt-40 border-t border-gray-400 pt-10 px-10">
         <div>
           <Image
             src={"/logo.png"}
@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="col-span-2">
           <Map />
         </div>
-        <div>
+        <div className="hidden md:block">
           <h1 className="font-bold text-xl pb-5">Get in touch</h1>
           <div className="flex items-center">
             <IoIosCall size={25} />
@@ -64,6 +64,35 @@ export default function Footer() {
                 Chowk, Chhend, Rourkela -15, Odisha
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="md:hidden px-10 mt-5">
+        <h1 className="font-bold text-xl pb-5">Get in touch</h1>
+        <div className="flex items-center">
+          <IoIosCall size={25} />
+          <div className="flex flex-col pl-4">
+            <span className="text-lg font-bold">Call</span>
+            <span>7735661657</span>
+          </div>
+        </div>
+        <div className="flex items-center mt-3">
+          <MdEmail size={25} />
+          <div className="flex flex-col pl-4">
+            <span className="text-lg font-bold">Email</span>
+            <span>7735661657</span>
+          </div>
+        </div>
+        <div className="flex items-center mt-3">
+          <div>
+            <FaMapLocationDot size={25} />
+          </div>
+          <div className="flex flex-col pl-4">
+            <span className="text-lg font-bold">Registered Office</span>
+            <span>
+              A-302, Birsa Munda Market complex, Phase - 3, Kalinga Vihar Chowk,
+              Chhend, Rourkela -15, Odisha
+            </span>
           </div>
         </div>
       </div>
