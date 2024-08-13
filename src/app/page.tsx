@@ -2,11 +2,18 @@
 import { AuroraBackground } from "@/components/aurora-background";
 import { BackgroundGradient } from "@/components/background-gradient";
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
-import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import Image from "next/image";
+import { FaVideo } from "react-icons/fa";
+import { SiAdobeindesign } from "react-icons/si";
+import { MdSubtitles } from "react-icons/md";
+import { SlSocialInstagram } from "react-icons/sl";
+import { MdOutlineDescription } from "react-icons/md";
 
 export default function Home() {
   return (
@@ -51,16 +58,20 @@ export default function Home() {
             <BentoGridItem
               title={"Video Editing"}
               description={
-                "Just give us your raw video and we will handle the rest"
+                "Transform your raw footage into a captivating story with our professional video editing services. Whether it’s a short promotional clip or a full-length feature, we bring your vision to life with precision and creativity."
               }
+              detail="We handle everything from color correction, transitions, sound design, to final rendering, ensuring your video stands out."
               className={"md:col-span-2 h-full"}
+              icon={<FaVideo color="white" size={25} />}
             />
           </BackgroundGradient>
           <BackgroundGradient className="rounded-xl h-full">
             <BentoGridItem
               title={"Graphic Designing"}
-              description={"lorem ipsum"}
+              // description={"lorem ipsum"}
+              detail="Our team blends creativity with the latest design trends to deliver eye-catching visuals that communicate your brand’s message effectively."
               className="h-full"
+              icon={<SiAdobeindesign color="white" size={25} />}
             />
           </BackgroundGradient>
           <BackgroundGradient
@@ -69,15 +80,18 @@ export default function Home() {
           >
             <BentoGridItem
               title={"Influencer Marketing"}
-              description={"lorem ipsum"}
+              detail="We handle influencer selection, campaign strategy, content creation, and performance analysis to ensure maximum impact."
+              // description={"lorem ipsum"}
               className="md:col-span-1 h-full"
             />
           </BackgroundGradient>
           <BackgroundGradient className="rounded-xl h-full">
             <BentoGridItem
               title={"Subtitle writing"}
-              description={"lorem ipsum"}
+              // description={"lorem ipsum"}
+              detail="Our services cover multiple languages, ensuring your message reaches a wider audience without losing its essence."
               className="h-full"
+              icon={<MdSubtitles color="white" size={25} />}
             />
           </BackgroundGradient>
           <BackgroundGradient
@@ -86,15 +100,21 @@ export default function Home() {
           >
             <BentoGridItem
               title={"Social Handle Management"}
-              description={"lorem ipsum"}
+              description={
+                " Keep your social media presence active and engaging with our expert social media management services. We create, schedule, and monitor posts to ensure your brand stays relevant and connected with your audience."
+              }
+              detail="Our services include content creation, community management, analytics reporting, and strategic growth planning."
               className="md:col-span-2 h-full"
+              icon={<SlSocialInstagram color="white" size={25} />}
             />
           </BackgroundGradient>
           <BackgroundGradient className="rounded-xl h-full">
             <BentoGridItem
               title={"Script writing"}
-              description={"lorem ipsum"}
+              // description={"lorem ipsum"}
+              detail="We collaborate closely with you to ensure the script aligns with your vision and delivers your message effectively."
               className="h-full"
+              icon={<MdOutlineDescription color="white" size={25} />}
             />
           </BackgroundGradient>
         </BentoGrid>
@@ -111,11 +131,24 @@ export default function Home() {
         <h1 className="text-center pb-5 text-4xl font-black text-[#080853]">
           Check out what our clients say about us
         </h1>
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="right"
-          speed="slow"
-        />
+      </div>
+
+      {/* TESTIMONIAL SECTION */}
+      <div className="justify-center items-center flex w-full">
+        <div className="w-[30%]">
+          <Carousel autoPlay infiniteLoop>
+            {testimonials.map((item) => (
+              <div>
+                <Image
+                  src={item.src}
+                  width={item.width ? item.width : 400}
+                  height={item.height ? item.height : 800}
+                  alt="testimonial image"
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
       <Footer />
     </div>
@@ -124,32 +157,27 @@ export default function Home() {
 
 const testimonials = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    id: 1,
+    src: "/testimonials/brahmi_testimonial_final.png",
+    width: 310,
+    height: 660,
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+    id: 2,
+    src: "/testimonials/jayesh_testimonial_final.png",
+    width: 310,
+    height: 660,
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    id: 3,
+    src: "/testimonials/maaz_its_fact_testimonial_final.png",
+    width: 310,
+    height: 660,
   },
   {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    id: 4,
+    src: "/testimonials/ono_creators_testimonial_final.png",
+    width: 310,
+    height: 660,
   },
 ];
