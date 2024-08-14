@@ -50,7 +50,7 @@ export default function Home() {
         >
           Our Services
         </h1>
-        <BentoGrid className="max-w-5xl mx-auto px-10 md:px-0">
+        <BentoGrid className="max-w-5xl mx-auto px-5 md:px-0">
           <BackgroundGradient
             containerClassName="md:col-span-2"
             className="rounded-xl h-full"
@@ -128,15 +128,15 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-20 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-        <h1 className="text-center pb-5 text-4xl font-black text-[#080853]">
+        <h1 className="text-center pb-5 text-4xl font-black text-[#080853] px-5 md:px-0">
           Check out what our clients say about us
         </h1>
       </div>
 
       {/* TESTIMONIAL SECTION */}
       <div className="justify-center items-center flex w-full">
-        <div className="w-[30%]">
-          <Carousel autoPlay infiniteLoop>
+        <div className="md:w-[30%]">
+          <Carousel showThumbs={false} autoPlay infiniteLoop>
             {testimonials.map((item, index) => (
               <div key={index}>
                 <Image
