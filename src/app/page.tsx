@@ -137,8 +137,8 @@ export default function Home() {
       <div className="justify-center items-center flex w-full">
         <div className="w-[30%]">
           <Carousel autoPlay infiniteLoop>
-            {testimonials.map((item) => (
-              <div>
+            {testimonials.map((item, index) => (
+              <div key={index}>
                 <Image
                   src={item.src}
                   width={item.width ? item.width : 400}
