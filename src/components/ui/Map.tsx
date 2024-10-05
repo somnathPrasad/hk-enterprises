@@ -17,8 +17,8 @@ export default function Map() {
       )) as google.maps.MarkerLibrary;
 
       const position = {
-        lat: 22.25823,
-        lng: 84.85162,
+        lat: 22.245991798449783,
+        lng: 84.80720072505429,
       };
 
       const mapOptions: google.maps.MapOptions = {
@@ -33,5 +33,5 @@ export default function Map() {
     initMap();
   }, []);
 
-  return <div style={{ height: "400px" }} ref={mapRef} />;
+  return <div style={{ height: "300px" }} ref={mapRef} />;
 }

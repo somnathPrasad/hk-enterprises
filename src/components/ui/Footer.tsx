@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosCall } from "react-icons/io";
-import { MdEmail } from "react-icons/md";
+import { IoIosMail } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
 import Map from "./Map";
 
@@ -10,7 +10,7 @@ export default function Footer() {
   const year = date.getFullYear();
   return (
     <div className="text-[#080853]">
-      <div className="grid grid-row-4 md:grid-cols-5 gap-10 mt-40 border-t border-gray-400 pt-10 px-10">
+      <div className="grid grid-row-4 md:grid-cols-4 gap-5 mt-40 border-t border-gray-400 pt-10 px-10">
         <div>
           <Image
             src={"/logo.png"}
@@ -34,7 +34,7 @@ export default function Footer() {
             <Link href={"/"}>Contact us</Link>
           </ul>
         </div>
-        <div className="col-span-2">
+        <div className="px-auto">
           <Map />
         </div>
         <div className="hidden md:block">
@@ -43,14 +43,14 @@ export default function Footer() {
             <IoIosCall size={25} />
             <div className="flex flex-col pl-4">
               <span className="text-lg font-bold">Call</span>
-              <span>7735661657</span>
+              <span>+917352646691</span>
             </div>
           </div>
           <div className="flex items-center mt-3">
-            <MdEmail size={25} />
+            <IoIosMail size={25} />
             <div className="flex flex-col pl-4">
               <span className="text-lg font-bold">Email</span>
-              <span>7735661657</span>
+              <span>hkmotionmedia@gmail.com</span>
             </div>
           </div>
           <div className="flex items-center mt-3">
@@ -73,14 +73,14 @@ export default function Footer() {
           <IoIosCall size={25} />
           <div className="flex flex-col pl-4">
             <span className="text-lg font-bold">Call</span>
-            <span>7735661657</span>
+            <span>+917352646691</span>
           </div>
         </div>
         <div className="flex items-center mt-3">
-          <MdEmail size={25} />
+          <IoIosMail size={25} />
           <div className="flex flex-col pl-4">
             <span className="text-lg font-bold">Email</span>
-            <span>7735661657</span>
+            <span>hkmotionmedia@gmail.com</span>
           </div>
         </div>
         <div className="flex items-center mt-3">

@@ -87,7 +87,7 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap items-center",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -107,11 +107,11 @@ export const InfiniteMovingCards = ({
 const ImageCard = ({ item }: { item: CartItem }) => {
   return (
     <li className="w-[350px] max-w-full relative flex-shrink-0 md:w-[450px]">
-      <div className="px-28 absolute -top-8 z-50">
-        <Image src={item.src} alt={item.name} width={300} height={300} />
+      <div className="w-full flex items-center justify-center absolute -top-5 md:-top-8 z-50">
+        <Image src={item.src} alt={item.name} width={220} height={220} />
       </div>
       <blockquote
-        className="border border-b-0 border-slate-700 px-8 py-6 pt-14 mt-32 rounded-2xl"
+        className="border border-b-0 border-slate-700 px-8 pb-6 pt-14 mt-32 rounded-2xl"
         style={{
           background:
             "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
@@ -144,7 +144,7 @@ const VideoCard = ({ item }: { item: CartItem }) => {
   const videoExtension = temp[temp.length - 1];
   return (
     <li className="relative flex-shrink-0">
-      <video width="350" controls className="rounded-2xl">
+      <video controls className="rounded-xl w-[280px] md:w-[350px]">
         <source src={item.src} type={`video/${videoExtension}`} />
       </video>
     </li>
