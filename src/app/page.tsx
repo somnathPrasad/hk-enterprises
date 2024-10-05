@@ -7,13 +7,13 @@ import Header from "@/components/ui/Header";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import Image from "next/image";
 import { FaVideo } from "react-icons/fa";
 import { SiAdobeindesign } from "react-icons/si";
 import { MdSubtitles } from "react-icons/md";
 import { SlSocialInstagram } from "react-icons/sl";
 import { MdOutlineDescription } from "react-icons/md";
+import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
+import { testimonials } from "@/testimonials";
 
 export default function Home() {
   return (
@@ -43,6 +43,7 @@ export default function Home() {
           </button>
         </motion.div>
       </AuroraBackground>
+
       <div>
         <h1
           className="text-center pb-5 text-4xl font-black text-[#080853]"
@@ -127,57 +128,22 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      {/* ===============TESTIMONIAL SECTION============================= */}
       <div className="mt-20 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
         <h1 className="text-center pb-5 text-4xl font-black text-[#080853] px-5 md:px-0">
           Check out what our clients say about us
         </h1>
       </div>
-
-      {/* TESTIMONIAL SECTION */}
-      <div className="justify-center items-center flex w-full">
-        <div className="md:w-[30%]">
-          <Carousel showThumbs={false} autoPlay infiniteLoop>
-            {testimonials.map((item, index) => (
-              <div key={index}>
-                <Image
-                  src={item.src}
-                  width={item.width ? item.width : 400}
-                  height={item.height ? item.height : 800}
-                  alt="testimonial image"
-                />
-              </div>
-            ))}
-          </Carousel>
-        </div>
+      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+        <InfiniteMovingCards
+          items={testimonials}
+          direction="right"
+          speed="slow"
+        />
       </div>
+
       <Footer />
     </div>
   );
 }
-
-const testimonials = [
-  {
-    id: 1,
-    src: "/testimonials/brahmi_testimonial_final.png",
-    width: 310,
-    height: 660,
-  },
-  {
-    id: 2,
-    src: "/testimonials/jayesh_testimonial_final.png",
-    width: 310,
-    height: 660,
-  },
-  {
-    id: 3,
-    src: "/testimonials/maaz_its_fact_testimonial_final.png",
-    width: 310,
-    height: 660,
-  },
-  {
-    id: 4,
-    src: "/testimonials/ono_creators_testimonial_final.png",
-    width: 310,
-    height: 660,
-  },
-];
