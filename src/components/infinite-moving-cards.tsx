@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export interface CartItem {
@@ -10,6 +11,8 @@ export interface CartItem {
   title: string;
   type: "image" | "video";
   src: string;
+  socialUrl?: string;
+  socialIcon?: React.ReactNode;
 }
 
 interface InfiniteMovingCards {
@@ -124,7 +127,7 @@ const ImageCard = ({ item }: { item: CartItem }) => {
         <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
           {item.quote}
         </span>
-        <div className="relative z-20 mt-6 flex flex-row items-center">
+        <div className="relative z-20 mt-6 flex flex-row items-center justify-between">
           <span className="flex flex-col gap-1">
             <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
               {item.name}
@@ -133,6 +136,11 @@ const ImageCard = ({ item }: { item: CartItem }) => {
               {item.title}
             </span>
           </span>
+          {item?.socialUrl && (
+            <Link target="_blank" href={item.socialUrl}>
+              {item.socialIcon}
+            </Link>
+          )}
         </div>
       </blockquote>
     </li>
@@ -142,11 +150,44 @@ const ImageCard = ({ item }: { item: CartItem }) => {
 const VideoCard = ({ item }: { item: CartItem }) => {
   let temp = item.src.split(".");
   const videoExtension = temp[temp.length - 1];
+
   return (
-    <li className="relative flex-shrink-0">
-      <video controls className="rounded-xl w-[280px] md:w-[350px]">
-        <source src={item.src} type={`video/${videoExtension}`} />
-      </video>
+    <li className="w-[350px] max-w-full relative flex-shrink-0 md:w-[450px]">
+      <blockquote className="relative">
+        <div className="w-full flex items-center justify-center">
+          <video
+            controls
+            className="rounded-xl w-[280px] md:w-[250px] -top-5 md:bottom-40 z-50"
+          >
+            <source src={item.src} type={`video/${videoExtension}`} />
+          </video>
+        </div>
+        <div
+          aria-hidden="true"
+          className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+        ></div>
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+          }}
+          className="absolute w-full -bottom-20 z-20 pt-10 pb-5 px-5 rounded-2xl flex flex-row items-center justify-between"
+        >
+          <span className="flex flex-col gap-1">
+            <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
+              {item.name}
+            </span>
+            <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
+              {item.title}
+            </span>
+          </span>
+          {item?.socialUrl && (
+            <Link target="_blank" href={item.socialUrl}>
+              {item.socialIcon}
+            </Link>
+          )}
+        </div>
+      </blockquote>
     </li>
   );
 };

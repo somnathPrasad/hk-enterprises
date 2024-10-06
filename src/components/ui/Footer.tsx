@@ -10,7 +10,7 @@ export default function Footer() {
   const year = date.getFullYear();
   return (
     <div className="text-[#080853]">
-      <div className="grid grid-row-4 md:grid-cols-4 gap-5 mt-40 border-t border-gray-400 pt-10 px-10">
+      <div className="grid grid-row-4 md:grid-cols-5 gap-5 mt-40 border-t border-gray-400 pt-10 px-10">
         <div>
           <Image
             src={"/logo.png"}
@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="px-auto">
           <Map />
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block col-span-2">
           <h1 className="font-bold text-xl pb-5">Get in touch</h1>
           <div className="flex items-center">
             <IoIosCall size={25} />
