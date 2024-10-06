@@ -46,7 +46,7 @@ export default function Home() {
 
       <div>
         <h1
-          className="text-center pb-5 text-4xl font-black text-[#080853]"
+          className="text-center pb-5 text-4xl font-black text-[#080853] scroll-smooth"
           id="services"
         >
           Our Services
