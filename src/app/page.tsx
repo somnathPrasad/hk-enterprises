@@ -18,8 +18,14 @@ import { testimonials } from "@/testimonials";
 export default function Home() {
   return (
     <div>
-      <AuroraBackground className="bg-white">
+      <div className="relative">
+        <div className="h-full w-full absolute bg-gradient-to-b from-slate-600 to-transparent"></div>
         <Header />
+        <video className="z-0" loop muted autoPlay playsInline>
+          <source className="z-0" src={"/hero.mp4"} type={`video/mp4`} />
+        </video>
+      </div>
+      <AuroraBackground className="bg-white">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +49,6 @@ export default function Home() {
           </button>
         </motion.div>
       </AuroraBackground>
-
       <div>
         <h1
           className="text-center pb-5 text-4xl font-black text-[#080853] scroll-smooth"
@@ -141,6 +146,12 @@ export default function Home() {
           direction="right"
           speed="slow"
         />
+      </div>
+
+      <div className="flex items-center justify-center">
+        <video width={700} height={700} loop muted autoPlay>
+          <source src={"/gifs/gif1.mp4"} type={`video/mp4`} />
+        </video>
       </div>
 
       <Footer />

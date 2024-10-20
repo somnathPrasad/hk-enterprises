@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div>
+    <div className="z-50">
       <div
         onClick={() => setMobileMenuOpen(true)}
         className="md:hidden absolute top-0 right-0"
@@ -42,11 +42,11 @@ export default function Header() {
           </div>
         </div>
       )}
-      <nav className="hidden md:flex justify-between w-full px-10 py-5 items-center text-center absolute top-0 left-0">
+      <nav className="hidden md:flex justify-between w-full px-10 py-5 items-center text-center absolute top-0 left-0 z-50">
         <div className="text-black">
           <Image src={"/logo.png"} width={100} height={100} alt="HK" />
         </div>
-        <div className="flex text-center items-center text-[#080853]">
+        <div className="flex text-center items-center text-white">
           <Link href={"/"} className="mr-7 font-normal">
             Home
           </Link>
