@@ -18,12 +18,17 @@ import { testimonials } from "@/testimonials";
 export default function Home() {
   return (
     <div>
-      <div className="relative">
-        <div className="h-full w-full absolute bg-gradient-to-b from-slate-600 to-transparent"></div>
+      <div className="relative border-0">
+        <div className="h-1/2 w-full absolute bg-gradient-to-b from-slate-600 to-transparent border-0"></div>
         <Header />
-        <video className="z-0" loop muted autoPlay playsInline>
-          <source className="z-0" src={"/hero.mp4"} type={`video/mp4`} />
+        <video className="z-0 border-0" loop muted autoPlay playsInline>
+          <source
+            className="z-0 border-0"
+            src={"/hero.mp4"}
+            type={`video/mp4`}
+          />
         </video>
+        <div className="h-full w-full absolute bg-gradient-to-t from-transparent via-slate-300 to-transparent -bottom-1/2 z-50 left-0"></div>
       </div>
       <AuroraBackground className="bg-white">
         <motion.div
