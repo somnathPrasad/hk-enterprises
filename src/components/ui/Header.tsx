@@ -1,70 +1,99 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
+import ContactUsModal from "@/components/ContactUsModal";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const heroSection = document.getElementById('hero');
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsScrolled(!entry.isIntersecting);
+        },
+        { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (heroSection) observer.observe(heroSection);
+
+    return () => {
+      if (heroSection) observer.unobserve(heroSection);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [mobileMenuOpen]);
+
   return (
-    <div className="z-50">
-      <div
-        onClick={() => setMobileMenuOpen(true)}
-        className="md:hidden absolute top-0 right-0"
-      >
-        <RxHamburgerMenu size={30} />
-      </div>
-      {mobileMenuOpen && (
-        <div className="w-1/2 h-full bg-slate-300 backdrop-blur-md bg-opacity-50 md:hidden absolute top-0 right-0 z-10 shadow-lg shadow-black">
+    <div className="z-50 w-full fixed">
+      {!mobileMenuOpen &&
           <div
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-end"
+              className={`md:hidden w-full flex items-center justify-between absolute top-0 right-0 ${isScrolled && "bg-gradient-to-b from-slate-300 to-slate-50"} py-5 px-2`}
           >
+            <div aria-expanded={mobileMenuOpen}
+                 aria-label="Open Menu" onClick={() => setMobileMenuOpen(true)} className={"flex"}>
+              <RxHamburgerMenu size={30}/>
+              <span className={"text-xl pl-3"}>Menu</span>
+            </div>
+
+            <div>
+              <ContactUsModal isFrom={"mobile_nav_not_open"}/>
+            </div>
+          </div>}
+      {mobileMenuOpen && (
+          <motion.div
+              initial={{opacity: 0, x: "-100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "-100%" }}
+              className="w-full h-screen bg-black text-white md:hidden z-50 items-center justify-center">
+            <div onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-end">
             <IoCloseOutline size={40} />
-          </div>
-          <div className="flex flex-col px-3 items-center justify-center">
-            <Link href={"/"} className="mt-4 font-normal">
+            </div>
+          <div className="flex h-96 flex-col px-3 items-center justify-center gap-4">
+            <Link onClick={() => setMobileMenuOpen(false)} href={"#hero"} className="mt-4 font-normal">
               Home
             </Link>
-            <Link href={"/"} className="mt-4 font-normal">
+            <Link onClick={() => setMobileMenuOpen(false)} href={"#about_us"} className="mt-4 font-normal">
               About us
             </Link>
-            <Link href={"#services"} className="mt-4 font-normal">
+            <Link onClick={() => setMobileMenuOpen(false)} href={"#services"} className="mt-4 font-normal">
               Services
             </Link>
-            <Link href={"/"} className="mt-4 font-normal">
+            <Link href={"https://drive.google.com/file/d/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE"} target={"_blank"} className="mt-4 font-normal">
               Our Work
             </Link>
-            <Link href={"/"} className="mt-4">
-              Contact Us
-            </Link>
+            <ContactUsModal isFrom={"mobile_nav"}/>
           </div>
-        </div>
+        </motion.div>
       )}
-      <nav className="hidden md:flex justify-between w-full px-10 py-5 items-center text-center absolute top-0 left-0 z-50">
+      <nav className={`hidden md:flex justify-between w-full px-10 py-5 ${isScrolled && "bg-gradient-to-b from-slate-300 to-slate-50"} items-center text-center absolute top-0 left-0 z-50`}>
         <div className="text-black">
           <Image src={"/logo.png"} width={100} height={100} alt="HK" />
         </div>
-        <div className="flex text-center items-center text-white">
-          <Link href={"/"} className="mr-7 font-normal">
+        <div className={`flex text-center items-center ${isScrolled ? "text-black" : "text-white"}`}>
+          <Link href={"#hero"} className="mr-7 font-normal">
             Home
           </Link>
-          <Link href={"/"} className="mr-7 font-normal">
+          <Link href={"#about_us"} className="mr-7 font-normal">
             About us
           </Link>
           <Link href={"#services"} className="mr-7 font-normal">
             Services
           </Link>
-          <Link href={"/"} className="mr-7 font-normal">
+          <Link href={"https://drive.google.com/file/d/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE"} target={"_blank"} className="mr-7 font-normal">
             Our Work
           </Link>
-          <Link
-            href={"/"}
-            className="bg-[#080853] text-white font-normal text-base px-5 py-1 rounded-3xl"
-          >
-            Contact Us
-          </Link>
+          <ContactUsModal isFrom={"nav"}/>
         </div>
       </nav>
     </div>

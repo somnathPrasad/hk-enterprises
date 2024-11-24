@@ -14,23 +14,23 @@ import { SlSocialInstagram } from "react-icons/sl";
 import { MdOutlineDescription } from "react-icons/md";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import { testimonials } from "@/testimonials";
+import ContactUsModal from "@/components/ContactUsModal";
 
 export default function Home() {
   return (
     <div>
-      <div className="relative border-0">
+      <div id={"hero"} className="relative border-0 h-screen">
         <div className="h-1/2 w-full absolute bg-gradient-to-b from-slate-600 to-transparent border-0"></div>
         <Header />
-        <video className="z-0 border-0" loop muted autoPlay playsInline>
+        <video className="z-0 border-0 object-cover w-full h-[inherit]" loop muted autoPlay playsInline>
           <source
-            className="z-0 border-0"
             src={"/hero.mp4"}
             type={`video/mp4`}
           />
         </video>
-        <div className="h-full w-full absolute bg-gradient-to-t from-transparent via-slate-300 to-transparent -bottom-1/2 z-50 left-0"></div>
+        <div className="h-full w-full absolute bg-gradient-to-t from-transparent via-slate-300 to-transparent -bottom-1/2 z-10 left-0"></div>
       </div>
-      <AuroraBackground className="bg-white">
+      <AuroraBackground className="bg-white mt-10 md:mt-0">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,9 +49,7 @@ export default function Home() {
             Scripting, Video presenters, Editing, Promotions and Advertisements.
             We offer services of 5 experts in the salary of 1.
           </div>
-          <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#080853,45%,#1e3631,55%,#080853)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:scale-110 ease-in-out">
-            Connect with us
-          </button>
+         <ContactUsModal isFrom={"main"}/>
         </motion.div>
       </AuroraBackground>
       <div>
@@ -129,15 +127,28 @@ export default function Home() {
             />
           </BackgroundGradient>
         </BentoGrid>
-        <div className="flex items-center justify-center mt-10">
-          <Link
-            href={"/services"}
-            className="inline-flex h-12 bg-[#080853] items-center justify-center rounded-full border border-slate-800 px-6 font-medium text-white focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:bg-opacity-90 hover:shadow-md hover:shadow-slate-600"
-          >
-            View more
-          </Link>
-        </div>
+        {/*<div className="flex items-center justify-center mt-10">*/}
+        {/*  <Link*/}
+        {/*    href={"/services"}*/}
+        {/*    className="inline-flex h-12 bg-[#080853] items-center justify-center rounded-full border border-slate-800 px-6 font-medium text-white focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:bg-opacity-90 hover:shadow-md hover:shadow-slate-600"*/}
+        {/*  >*/}
+        {/*    View more*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
+
+        {/* ===============About Us SECTION============================= */}
+        <div id={"about_us"} className="mt-20 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+            <h1 className="text-center pb-5 text-4xl font-black text-[#080853] px-5 md:px-0">
+                Who We Are
+            </h1>
+            <p className={"md:mx-40 mx-10 text-center text-xl"}>
+                At HK Enterprises, we are passionate about empowering businesses and creators through exceptional digital solutions. With expertise in video editing, graphic design, influencer marketing, and social media management, we transform your ideas into impactful content.
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                Our team prides itself on delivering innovative strategies and captivating visuals to help you connect with your audience. Whether you're a startup or an established brand, we provide tailored services designed to elevate your online presence and drive results.
+                Let’s build something extraordinary together.
+            </p>
+        </div>
 
       {/* ===============TESTIMONIAL SECTION============================= */}
       <div className="mt-20 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
