@@ -66,7 +66,7 @@ export const testimonials: CartItem[] = [
     quote:
       "I highly recommend HK Motion Media for all your editing needs. Their fast turnaround time and exceptional understanding of client requirements truly set them apart. What impressed me most is their ability to work independently, requiring minimal assistance while delivering top-notch results every time. Trust HK Motion Media for professional SSM & editing services that exceed expectations.",
     name: "Nihar Tadichetty",
-    title: "Marketing Agency",
+    title: "Founder of https://voidspace.ai/",
     type: "video",
     src: "/testimonials/nihar.mp4",
     socialUrl:

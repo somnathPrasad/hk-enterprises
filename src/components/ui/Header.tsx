@@ -38,7 +38,7 @@ export default function Header() {
     <div className="z-50 w-full fixed">
       {!mobileMenuOpen &&
           <div
-              className={`md:hidden w-full flex items-center justify-between absolute top-0 right-0 ${isScrolled && "bg-gradient-to-b from-slate-300 to-slate-50"} py-5 px-2`}
+              className={`md:hidden w-full flex items-center justify-between bg-white px-2`}
           >
             <div aria-expanded={mobileMenuOpen}
                  aria-label="Open Menu" onClick={() => setMobileMenuOpen(true)} className={"flex"}>
@@ -46,9 +46,16 @@ export default function Header() {
               <span className={"text-xl pl-3"}>Menu</span>
             </div>
 
-            <div>
-              <ContactUsModal isFrom={"mobile_nav_not_open"}/>
+            <div className={"ml-7"}>
+                <video width={100} height={100} loop muted autoPlay playsInline>
+                  <source
+                      src={"/yt_upper.mp4"}
+                      type={`video/mp4`}
+                  />
+                </video>
             </div>
+
+              <ContactUsModal isFrom={"mobile_nav_not_open"}/>
           </div>}
       {mobileMenuOpen && (
           <motion.div
@@ -69,17 +76,26 @@ export default function Header() {
             <Link onClick={() => setMobileMenuOpen(false)} href={"#services"} className="mt-4 font-normal">
               Services
             </Link>
-            <Link href={"https://drive.google.com/file/d/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE"} target={"_blank"} className="mt-4 font-normal">
+            <Link rel="noopener noreferrer" target={"_blank"} href={"https://drive.google.com/drive/folders/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE?usp=sharing"} className="mt-4 font-normal">
               Our Work
             </Link>
             <ContactUsModal isFrom={"mobile_nav"}/>
           </div>
         </motion.div>
       )}
-      <nav className={`hidden md:flex justify-between w-full px-10 py-5 ${isScrolled && "bg-gradient-to-b from-slate-300 to-slate-50"} items-center text-center absolute top-0 left-0 z-50`}>
-        <div className="text-black">
-          <Image src={"/logo.png"} width={100} height={100} alt="HK" />
+      <nav className={`hidden md:flex justify-between w-full px-10 ${isScrolled ? "bg-white shadow-md shadow-slate-300": "py-5"} transition-colors items-center text-center absolute top-0 left-0 z-50`}>
+        <div className="text-white">
+          <Image src={"/logo.png"} width={100} height={100} alt="HK"/>
         </div>
+
+        {isScrolled &&
+        <video width={150} height={150} loop muted autoPlay playsInline className={"ml-56"}>
+          <source
+              src={"/yt_upper.mp4"}
+              type={`video/mp4`}
+          />
+        </video>
+        }
         <div className={`flex text-center items-center ${isScrolled ? "text-black" : "text-white"}`}>
           <Link href={"#hero"} className="mr-7 font-normal">
             Home
@@ -90,7 +106,8 @@ export default function Header() {
           <Link href={"#services"} className="mr-7 font-normal">
             Services
           </Link>
-          <Link href={"https://drive.google.com/file/d/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE"} target={"_blank"} className="mr-7 font-normal">
+          <Link rel="noopener noreferrer" href={"https://drive.google.com/drive/folders/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE?usp=sharing"} target={"_blank"}
+                className="mr-7 font-normal">
             Our Work
           </Link>
           <ContactUsModal isFrom={"nav"}/>

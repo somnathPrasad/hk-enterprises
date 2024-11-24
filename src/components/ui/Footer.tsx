@@ -4,6 +4,7 @@ import { IoIosCall } from "react-icons/io";
 import { IoIosMail } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
 import Map from "./Map";
+import ContactUsModal from "@/components/ContactUsModal";
 
 export default function Footer() {
   const date = new Date();
@@ -27,11 +28,11 @@ export default function Footer() {
         <div>
           <h1 className="font-bold text-xl pb-5">Navigation</h1>
           <ul className="font-medium text-lg cursor-pointer grid grid-row-5 gap-2 pl-1">
-            <Link href={"/"}>Home</Link>
-            <Link href={"/"}>About us</Link>
-            <Link href={"/"}>Services</Link>
-            <Link href={"/"}>Our Work</Link>
-            <Link href={"/"}>Contact us</Link>
+            <Link href={"#hero"}>Home</Link>
+            <Link href={"#about_us"}>About us</Link>
+            <Link href={"#services"}>Services</Link>
+            <Link rel="noopener noreferrer" target={"_blank"} href={"https://drive.google.com/drive/folders/1D7JleVb-PVBhFom8b2x8oHuP7x0HICcE?usp=sharing"}>Our Work</Link>
+            <ContactUsModal isFrom={"footer"}/>
           </ul>
         </div>
         <div className="px-auto">
@@ -43,7 +44,7 @@ export default function Footer() {
             <IoIosCall size={25} />
             <div className="flex flex-col pl-4">
               <span className="text-lg font-bold">Call</span>
-              <span>+917352646691</span>
+              <span>+919523230486</span>
             </div>
           </div>
           <div className="flex items-center mt-3">

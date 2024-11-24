@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import {IoCloseOutline} from "react-icons/io5";
 
@@ -13,7 +13,7 @@ const ContactUsModal = ({isFrom}: {isFrom: string}) => {
     };
 
     const waMsg = "Hi, I would like to know more about your services."
-    const waNumber = "917352646691"
+    const waNumber = "919523230486"
 
     return (
         <div>
@@ -21,7 +21,9 @@ const ContactUsModal = ({isFrom}: {isFrom: string}) => {
             {isFrom === "mobile_nav" ?
                 <p className="mt-4 font-normal" onClick={toggleModal}>
                     Contact Us
-                </p> : isFrom === "main" ? <button
+                </p> : isFrom === "footer" ? <p className="font-normal" onClick={toggleModal}>
+                    Contact Us
+                </p>: isFrom === "main" ? <button
                     onClick={toggleModal}
                     className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#080853,45%,#1e3631,55%,#080853)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:scale-110 ease-in-out">
                     Connect with us
@@ -62,6 +64,17 @@ const ContactUsModal = ({isFrom}: {isFrom: string}) => {
                             >
                                 <FaWhatsapp className="text-4xl" />
                                 <p className="mt-2 text-sm">WhatsApp</p>
+                            </Link>
+
+                            {/* Instagram Icon */}
+                            <Link
+                                href={`https://www.instagram.com/hkmotionmedia`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center text-red-500 hover:text-red-600"
+                            >
+                                <FaInstagram className="text-4xl"/>
+                                <p className="mt-2 text-sm">Instagram</p>
                             </Link>
                         </div>
                         <button

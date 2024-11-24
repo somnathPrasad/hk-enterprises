@@ -19,10 +19,10 @@ import ContactUsModal from "@/components/ContactUsModal";
 export default function Home() {
   return (
     <div>
-      <div id={"hero"} className="relative border-0 h-screen">
-        <div className="h-1/2 w-full absolute bg-gradient-to-b from-slate-600 to-transparent border-0"></div>
+      <div id={"hero"} className="relative border-0">
+        <div className="h-1/2 w-full absolute bg-gradient-to-b from-slate-600 to-transparent border-0 md:block hidden"></div>
         <Header />
-        <video className="z-0 border-0 object-cover w-full h-[inherit]" loop muted autoPlay playsInline>
+        <video className="z-0 border-0 md:object-cover w-full md:pt-0 pt-14" loop muted autoPlay playsInline>
           <source
             src={"/hero.mp4"}
             type={`video/mp4`}
@@ -30,7 +30,7 @@ export default function Home() {
         </video>
         <div className="h-full w-full absolute bg-gradient-to-t from-transparent via-slate-300 to-transparent -bottom-1/2 z-10 left-0"></div>
       </div>
-      <AuroraBackground className="bg-white mt-10 md:mt-0">
+      <AuroraBackground className="bg-white">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
